@@ -1,0 +1,308 @@
+body {
+    font-family: "Lato", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+nav{
+    background-color: black;
+    color: #ffffff;
+    padding: 20px 50px;
+}
+
+.navTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.searchInput{
+    border: none;
+    background-color: transparent;
+
+}
+
+.searchInput::placeholder{
+    color: lightgray;
+}
+
+.limitedOffer{
+    font-size: 20px;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+
+}
+
+.navBottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuItem{
+    align-items: center;
+    margin-right: 65px;
+    cursor: pointer;
+    color: lightgray;
+    font-weight: 400;
+}
+
+.slider{
+    background: url("https://w.wallhaven.cc/full/xl/wallhaven-xl8y9z.jpg");
+    background-position: center bottom;
+    clip-path: polygon(50% 0, 100% 0, 100% 57%, 100% 100%, 50% 100%, 0 85%, 0 0);
+}
+
+.sliderWrapper{
+    display: flex;
+    width: 500vw;
+    transition: all 1s ease-in-out;
+}
+
+.sliderItem{
+    width: 102vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.sliderBg{
+    width: 625px;
+    height: 625px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.sliderImg{
+    z-index: 1;
+}
+
+.sliderTitle{
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    font-size: 80px;
+    font-weight: 900;
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.sliderPrice{
+    position: absolute;
+    top: 10%;
+    left: 12%;
+    font-size: 60px;
+    font-weight: 300;
+    z-index: 1;
+}
+
+.buyButton{
+    position: absolute;
+    top: 70%;
+    right: 12%;
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    border: 1px solid gray;
+    background-color: black;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.buyButton:hover{
+    background-color: white;
+    color: black;
+}
+
+.sliderItem:nth-child(1) .sliderBg{
+    background: url("https://w.wallhaven.cc/full/y8/wallhaven-y8x1z7.jpg");
+    /*background-color: #F3B73E;*/
+    background-position: center bottom;
+    opacity: 0.9;
+}
+
+.sliderItem:nth-child(2) .sliderBg{
+    background: url("https://pics.craiyon.com/2023-12-29/W8ga5IrLSKiqBkBG8CU3nA.webp");
+    /*background-color: #F3B73E;*/
+    background-position: center left;
+    opacity: 0.9;
+}
+
+.sliderItem:nth-child(3) .sliderBg{
+    background: url("https://w.wallhaven.cc/full/qz/wallhaven-qzyep7.jpg");
+    /*background-color: #F3B73E;*/
+    background-position: center top;
+    opacity: 0.9;
+}
+
+.sliderItem:nth-child(4) .sliderBg{
+    background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/95c81712-297b-4808-97d8-7982b899fed2/dhgqze4-ba122318-2370-4982-acb2-b89ab4e663b9.png/v1/fill/w_1194,h_669,q_70,strp/wallpaper__63_volcanic_eruption_at_night_by_wakakel_dhgqze4-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzk1YzgxNzEyLTI5N2ItNDgwOC05N2Q4LTc5ODJiODk5ZmVkMlwvZGhncXplNC1iYTEyMjMxOC0yMzcwLTQ5ODItYWNiMi1iODlhYjRlNjYzYjkucG5nIiwiaGVpZ2h0IjoiPD03MTgiLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC85NWM4MTcxMi0yOTdiLTQ4MDgtOTdkOC03OTgyYjg5OWZlZDJcL3dha2FrZWwtNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.T4hku_EgdhFdSI3i0CQPFRHXxG_PA1JGv84TD5aNdQE");
+    /*background-color: #F3B73E;*/
+    background-position: center top;
+    opacity: 0.9;
+}
+
+.sliderItem:nth-child(1) .sliderPrice{
+    color: white;
+    border: 1px solid white;
+}
+
+.sliderItem:nth-child(2) .sliderPrice{
+    color: white;
+    border: 1px solid white;
+}
+
+.sliderItem:nth-child(3) .sliderPrice{
+    color: white;
+    border: 1px solid white;
+}
+
+.sliderItem:nth-child(4) .sliderPrice{
+    color: white;
+    border: 1px solid white;
+}
+
+.features{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.feature{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.featureIcon{
+    width: 50px; 
+    height: 50px;
+}
+
+.featureTitle{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px;
+}
+
+.featureDesc{
+    color: gray;
+    width: 50%;
+    height: 100px
+}
+
+.product{
+    height: 100vh;
+    background-color: #f2eeed;
+    position: relative;
+    clip-path: polygon(50% 0, 100% 0, 100% 57%, 100% 85%, 50% 100%, 0 100%, 0 15%);
+}
+
+.payment{
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 10px 50px;
+    display: flex;
+    flex-direction: column;
+-webkit-box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.75);
+}
+
+.productImg{
+    width: 55%;
+}
+
+.productDetails{
+    position: absolute;
+    top: 10%;
+    right: 0;
+    width: 40%;
+    padding: 50px;
+}
+
+.productTitle{
+    font-style: 75px;
+    font-weight: 900;
+}
+
+.productDesc{
+    font-style: 24px;
+    color: gray;
+}
+
+.quantities{
+    display: flex;
+}
+
+.colors,.quantities{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.color{
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: white;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.color:nth-child(2){
+    background-color: orange;
+}
+
+.color:nth-child(3){
+    background-color: gold;
+}
+
+.color:nth-child(4){
+    background-color: brown;
+}
+
+.color:last-child{
+    background-color: green;
+}
+
+.quantity{
+    padding: 5px 20px;
+    border: 1px solid black;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.quantity:hover{
+    background-color: black;
+    color: white;
+}
+
+.productButton{
+    float: right;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
