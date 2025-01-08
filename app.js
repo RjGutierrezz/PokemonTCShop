@@ -6,6 +6,7 @@ const products = [
     id: 1,
     title: "Brilliant Stars Booster Pack",
     price: 44.99,
+    description: "This Build & Battle Box includes a 40-card deck (which contains one of four exclusive foil promo cards) and four booster packs from Pokémon TCG: Sword & Shield—Brilliant Stars. The deck inside comes ready to play, and you can enhance it with the cards you find in the booster packs!",
     colors: [
         {
             title: "Brilliant Stars Booster Pack",
@@ -43,6 +44,7 @@ const products = [
     id: 2,
     title: "Lost Origin Booster Pack",
     price: 32.75,
+    description: "This Build & Battle Box includes a 40-card deck (which contains one of four exclusive foil promo cards) and four booster packs from Pokémon TCG: Sword & Shield—Lost Origin. The deck inside comes ready to play, and you can enhance it with the cards you find in the booster packs!",
     colors: [
         {
             title: "Lost Origin Booster Pack",
@@ -80,6 +82,7 @@ const products = [
     id: 3,
     title: "Paldean Fates Booster Pack",
     price: 21.99,
+    description: "The spotlight glistens on Shiny Pokémon making their fated return to the Pokémon TCG! Shiny Pikachu blazes the path forward as Tinkaton, Ceruledge, Dondozo, and more than 100 other Shiny Pokémon follow. Meanwhile, Great Tusk and Iron Treads appear as Ancient and Future Pokémon ex, and Charizard, Forretress, and Espathra show off their own unique skills as Shiny Tera Pokémon ex. Shed some light and discover sparkling wonders in the Scarlet & Violet—Paldean Fates expansion!",
     colors: [
         {
             title: "Paldean Fates Booster Pack",
@@ -117,6 +120,7 @@ const products = [
     id: 4,
     title: "Scarlet & Violet Obsidian Flames",
     price: 27.99,
+    description: "Red-hot embers illuminate the pitch-black night and sparks flare into an inferno as Charizard ex surges forth with newfound powers of darkness! The glittering Terastal phenomenon imbues some Pokémon ex like Tyranitar, Eiscue, and Vespiquen with different types than usual, while Dragonite ex and Greedent ex show mastery of their own inner strengths. Not to be outdone, Revavroom ex, Melmetal ex, and more Pokémon promise to change the course of battle in the Scarlet & Violet—Obsidian Flames expansion!",
     colors: [
         {
             title: "Scarlet & Violet Obsidian Flames",
@@ -158,6 +162,7 @@ let chosenProduct = products[0];
 const currentProductImg = document.querySelector(".productImg");
 const currentProductTitle = document.querySelector(".productTitle");
 const currentProductPrice = document.querySelector(".productPrice");
+const currentProductDescription = document.querySelector(".productDesc");
 const currentProductColors = document.querySelectorAll(".color");
 const currentProductQuantities = document.querySelectorAll(".quantity");
 
@@ -173,6 +178,7 @@ menuItems.forEach((item, index) => {
         currentProductTitle.textContent = chosenProduct.title;
         currentProductPrice.textContent = "$ " + chosenProduct.price;
         currentProductImg.src = chosenProduct.colors[0].img;
+        currentProductDescription.textContent = chosenProduct.description;
 
         // assigning colors
         currentProductColors.forEach((color, index) => {
@@ -186,7 +192,7 @@ currentProductColors.forEach((color, index) => {
     color.addEventListener("click", ()=> {
         currentProductImg.src = chosenProduct.colors[index].img;
         currentProductTitle.textContent = chosenProduct.colors[index].title;
-        currentProductPrice.textContent = chosenProduct.colors[index].price;
+        currentProductPrice.textContent = "$ " + chosenProduct.colors[index].price;
     })
 })
 
