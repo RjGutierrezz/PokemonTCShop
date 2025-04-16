@@ -87,9 +87,8 @@
             <input type="email" name="email" placeholder="User Email" class="fInput" required>
             <button class="fButton" name="submit" type="submit">Submit</button>
         </div>
-    </form>
 
-    <?php
+        <?php
         if (isset($_POST['submit']))  {
             $name = escapeshellarg($_POST["name"]);
             $age = escapeshellarg($_POST["age"]);
@@ -105,7 +104,36 @@
             // run insert_new_user.py
             system($escaped_command); 
         }
-    ?>
+        ?>
+    </form>
+    <form method="POST" action="index.php" class="dbprompts">
+        <h1 class="promptTitle">Assign Bundle to User</h1>
+        <div class="fTest">
+        <input type="number" name="userid" placeholder="User ID" class="fInput" required>
+        
+        <select name="bundlename" class="fInput" required>
+            <option value="">Select a Bundle</option>
+            <option value="Sword & Shield Brilliant Stars">Brilliant Stars</option>
+            <option value="Sword & Shield Lost Origin">Lost Origin</option>
+            <option value="Scarlet & Violet Paldean Fates">Paldean Fates</option>
+            <option value="Scarlet & Violet Obsidian Flames">Obsidian Flames</option>
+        </select>
+        
+        <button class="fButton" type="submit" name="assign">Assign Bundle</button>
+        </div>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["assign"])) {
+        $userid = $_POST["userid"];
+        $bundlename = $_POST["bundlename"];
+
+        // call your new Python script
+        $output = shell_exec("python3 assign_bundle.py " . escapeshellarg($userid) . " " . escapeshellarg($bundlename));
+        echo "<div style='padding: 20px; color: blue; font-weight: bold;'>$output</div>";
+        }
+        ?>
+        
+    </form>
 
     <div class="features">
         <div class="feature">
