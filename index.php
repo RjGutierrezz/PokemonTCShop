@@ -37,6 +37,7 @@
             <h3 class="menuItem">Scarlet & Violet Obsidian Flames</h3>
         </div>
     </nav>
+
     <div class="slider">
         <div class="sliderWrapper">
             <div class="sliderItem">
@@ -77,6 +78,34 @@
             </div>
         </div>
     </div>
+
+    <form method="POST" action="index.php" class="dbprompts">
+        <h1 class="promptTitle">Add a New User</h1>
+        <div class="fTest">
+            <input type="text" name="name" placeholder="User Name" class="fInput" required>
+            <input type="number" name="age" placeholder="User Age" class="fInput" required>
+            <input type="email" name="email" placeholder="User Email" class="fInput" required>
+            <button class="fButton" name="submit" type="submit">Submit</button>
+        </div>
+    </form>
+
+    <?php
+        if (isset($_POST['submit']))  {
+            $name = escapeshellarg($_POST["name"]);
+            $age = escapeshellarg($_POST["age"]);
+            $email = escapeshellarg($_POST["email"]);
+
+            // Execute Python script
+            $output = 'python3 insert_new_user.py ' . $name . ' ' . $age . ' ' . $email;
+            
+            // remove dangerous characters from command to protect web server
+            $escaped_command = escapeshellcmd($output);
+            echo "<p>command: $output <p>"; 
+
+            // run insert_new_user.py
+            system($escaped_command); 
+        }
+    ?>
 
     <div class="features">
         <div class="feature">
@@ -165,6 +194,7 @@
                 alt="" class="galleryImg">
         </div>
     </div>
+
     <div class="newSeason">
         <div class="nsItem">
             <img src="https://i.pinimg.com/736x/2c/e9/cd/2ce9cdcf959adece8aecd939c9db390b.jpg"
