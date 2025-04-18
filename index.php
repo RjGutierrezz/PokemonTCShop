@@ -97,7 +97,7 @@
             $age = escapeshellarg($_POST["age"]);
             $email = escapeshellarg($_POST["email"]);
             
-            $command = "python3 insert_new_user.py $action $name $age $email";
+            $command = "python3 db_functions.py $action $name $age $email";
 
             #$escaped_command = escapeshellarg($command);
             //echo "<p>command: $command <p>";
