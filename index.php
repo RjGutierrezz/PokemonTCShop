@@ -79,7 +79,7 @@
         </div>
     </div>
 
-    <!-- Function 1 -->
+    <!-- Function 1 MAINTENANCE -->
     <form method="POST" action="index.php" class="dbprompts">
         <h1 class="promptTitle">Add a New User</h1>
         <div class="fTest">
@@ -100,7 +100,7 @@
             
             // remove dangerous characters from command to protect web server
             $escaped_command = escapeshellcmd($output);
-            echo "<p>command: $output <p>"; 
+            echo "<p>command: $escaped_command<p>"; 
 
             // run insert_new_user.py
             system($escaped_command); 
@@ -108,8 +108,8 @@
         ?>
     </form>
 
-    <!-- Function 2 -->
-    <form method="POST" action="index.php" class="dbprompts">
+    <!-- Function 2 MAINTENANCE -->
+    <form method="POST" action="index.php" class="dbprompts" style="background-color: #f2eeed">
         <h1 class="promptTitle">Assign Bundle to User</h1>
         <div class="fTest">
         <input type="number" name="userid" placeholder="User ID" class="fInput" required>
@@ -137,7 +137,7 @@
         ?>
     </form>
 
-    <!-- Function 3 -->
+    <!-- Function 3 MAINTENANCE -->
     <form method="POST" action="index.php" class="dbprompts">
         <h1 class="promptTitle">View Users by Bundle</h1>
         <div class="fTest">
@@ -159,8 +159,8 @@
         ?>
     </form>
 
-    <!-- Function 4 -->
-    <form method="POST" action="index.php" class="dbprompts">
+    <!-- Function 4 MAINTENANCE -->
+    <form method="POST" action="index.php" class="dbprompts" style="background-color: #f2eeed">
         <h1 class="promptTitle">View All Bundles and Their Owners</h1>
         <button type="submit" name="view_bundle_ownership" class="fButton">View Bundles</button>
 
@@ -172,7 +172,7 @@
         ?>
     </form>
 
-    <!-- Function 5 -->
+    <!-- Function 5 MAINTENANCE-->
     <form method="POST" action="index.php" class="dbprompts">
         <h1 class="promptTitle">Search Bundles by Request</h1>
         <div class="fTest">
@@ -199,8 +199,8 @@
         ?>
     </form>
 
-    <!-- Function 6 -->
-    <form method="POST" action="index.php" class="dbprompts">
+    <!-- Function 6 MAINTENANCE-->
+    <form method="POST" action="index.php" class="dbprompts" style="background-color: #f2eeed">
         <h1 class="promptTitle">Find Matching Users</h1>
         <div class="fTest">
         <input type="number" name="match_user_id" class="fInput" placeholder="Enter User ID" required>
@@ -216,7 +216,7 @@
         ?>
     </form>
 
-    <!-- Function 7 -->
+    <!-- Function 7 MAINTENANCE-->
     <form method="POST" action="index.php" class="dbprompts">
         <h1 class="promptTitle">Bundle Report</h1>
         <div class="fTest">
@@ -398,23 +398,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-
-
-<?php
-if (isset($_POST['submit'])) 
-{
-    // replace ' ' with '\ ' in the strings so they are treated as single command line args
-    $name = $_POST["name"];
-    $age = $_POST["age"];
-    $email = $_POST["email"];
-    
-    $output = shell_exec("python3 insert_new_user.py " . escapeshellarg($name) . " " . escapeshellarg($age) . " " . escapeshellarg($email));
-    echo $output;
-
-    // remove dangerous characters from command to protect web server
-    $escaped_command = escapeshellcmd($command);
-    echo "<p>command: $command <p>"; 
-    // run insert_new_item.py
-    system($escaped_command);           
-}
-?>
