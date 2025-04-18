@@ -1,3 +1,4 @@
+#  DO:  more $HOME/.my.cnf to see your MySQL username and  password
 import mysql.connector
 from tabulate import tabulate
 
