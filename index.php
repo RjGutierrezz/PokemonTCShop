@@ -89,20 +89,19 @@
         </div>
 
         <?php
-        if (isset($_POST['submit']))  {
+        if (isset($_POST['submit']))  
+        {
+            
+            $action = escapeshellarg("add user");
             $name = escapeshellarg($_POST["name"]);
             $age = escapeshellarg($_POST["age"]);
             $email = escapeshellarg($_POST["email"]);
-
-            // Execute Python script
-            $output = 'python3 insert_new_user.py ' . $name . ' ' . $age . ' ' . $email;
             
-            // remove dangerous characters from command to protect web server
-            $escaped_command = escapeshellcmd($output);
-            echo "<p>command: $output <p>"; 
+            $command = "python3 insert_new_user.py $action $name $age $email";
 
-            // run insert_new_user.py
-            system($escaped_command); 
+            #$escaped_command = escapeshellarg($command);
+            //echo "<p>command: $command <p>";
+            system($command);
         }
         ?>
     </form>
@@ -134,6 +133,25 @@
         ?>
         
     </form>
+
+
+    <form>
+    <h1 style = "text-align: center" >Show all users who own a specific Bundle</h1>
+    <div class = "fTest">
+    <select name="bundlename" class="fInput" required>
+        <option value="">Select a Bundle</option>
+        <option value="Sword & Shield Brilliant Stars">Brilliant Stars</option>
+        <option value="Sword & Shield Lost Origin">Lost Origin</option>
+        <option value="Scarlet & Violet Paldean Fates">Paldean Fates</option>
+        <option value="Scarlet & Violet Obsidian Flames">Obsidian Flames</option>
+    </select>
+    <button class="fButton" type="submit" name="findUsers">Choose Bundle</button>
+
+    </div>
+    </form>
+
+
+    
 
     <div class="features">
         <div class="feature">
@@ -304,7 +322,7 @@
 
 
 <?php
-if (isset($_POST['submit'])) 
+if (isset($_POST['func3'])) 
 {
     // replace ' ' with '\ ' in the strings so they are treated as single command line args
     $name = $_POST["name"];
@@ -320,4 +338,5 @@ if (isset($_POST['submit']))
     // run insert_new_item.py
     system($escaped_command);           
 }
+
 ?>

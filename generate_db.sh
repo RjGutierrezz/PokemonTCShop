@@ -1,19 +1,15 @@
 mysql <<EOFMYSQL
-use rbg002;
+use palencia;
 show tables;
 
-DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS UserBundle;
+DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Bundle;
 DROP TABLE IF EXISTS BoosterPack;
 
-CREATE TABLE PokemonCard (
-    CardID INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE BoosterPack (
+    BoosterPackID INT PRIMARY KEY,
     Name VARCHAR(50),
-    Type VARCHAR(30),
-    Weight INT,
-    HP INT,
-    BoosterPack VARCHAR(100),
     BundleName VARCHAR(100)
 );
 
@@ -39,7 +35,5 @@ CREATE TABLE UserBundle (
     FOREIGN KEY (UserID) REFERENCES User(UserID),
     FOREIGN KEY (BundleName) REFERENCES Bundle(BundleName)
 );
-
-INSERT INTO UserBundle (UserID, BundleName) VALUES (1, 'Lost Origin');
 
 EOFMYSQL
