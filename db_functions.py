@@ -40,4 +40,3 @@ try:
     python_db.close_db()  # close db
 except Exception as e:
     logging.error(traceback.format_exc())
-

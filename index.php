@@ -79,7 +79,7 @@
         </div>
     </div>
 
-    <!-- Function 1 MAINTENANCE -->
+    <!-- Function 1 -->
     <form method="POST" action="index.php" class="dbprompts">
         <h1 class="promptTitle">Add a New User</h1>
         <div class="fTest">
@@ -98,10 +98,10 @@
             $age = escapeshellarg($_POST["age"]);
             $email = escapeshellarg($_POST["email"]);
             
-            $command = "python3 insert_new_user.py $action $name $age $email";
+            $command = "python3 db_functions.py $action $name $age $email";
 
-            #$escaped_command = escapeshellarg($command);
-            //echo "<p>command: $command <p>";
+            $escaped_command = escapeshellarg($command);
+            echo "<p>command: $command <p>";
             system($command);
         }
         ?>
@@ -227,24 +227,6 @@
             echo "<div style='padding: 20px; font-family: monospace;'>$output</div>";
             }
         ?>
-    </form>
-
-
-
-
-    <form>
-    <h1 style = "text-align: center" >Show all users who own a specific Bundle</h1>
-    <div class = "fTest">
-    <select name="bundlename" class="fInput" required>
-        <option value="">Select a Bundle</option>
-        <option value="Sword & Shield Brilliant Stars">Brilliant Stars</option>
-        <option value="Sword & Shield Lost Origin">Lost Origin</option>
-        <option value="Scarlet & Violet Paldean Fates">Paldean Fates</option>
-        <option value="Scarlet & Violet Obsidian Flames">Obsidian Flames</option>
-    </select>
-    <button class="fButton" type="submit" name="findUsers">Choose Bundle</button>
-
-    </div>
     </form>
 
 
@@ -416,24 +398,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-
-
-<?php
-if (isset($_POST['func3'])) 
-{
-    // replace ' ' with '\ ' in the strings so they are treated as single command line args
-    $name = $_POST["name"];
-    $age = $_POST["age"];
-    $email = $_POST["email"];
-    
-    $output = shell_exec("python3 insert_new_user.py " . escapeshellarg($name) . " " . escapeshellarg($age) . " " . escapeshellarg($email));
-    echo $output;
-
-    // remove dangerous characters from command to protect web server
-    $escaped_command = escapeshellcmd($command);
-    echo "<p>command: $command <p>"; 
-    // run insert_new_item.py
-    system($escaped_command);           
-}
-
-?>
