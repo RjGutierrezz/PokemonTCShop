@@ -79,6 +79,7 @@
         </div>
     </div>
 
+    <!-- Function 1 -->
     <form method="POST" action="index.php" class="dbprompts">
         <h1 class="promptTitle">Add a New User</h1>
         <div class="fTest">
@@ -106,6 +107,8 @@
         }
         ?>
     </form>
+
+    <!-- Function 2 -->
     <form method="POST" action="index.php" class="dbprompts">
         <h1 class="promptTitle">Assign Bundle to User</h1>
         <div class="fTest">
@@ -123,17 +126,111 @@
         </div>
 
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["assign"])) {
-        $userid = $_POST["userid"];
-        $bundlename = $_POST["bundlename"];
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["assign"])) {
+            $userid = $_POST["userid"];
+            $bundlename = $_POST["bundlename"];
 
-        // call your new Python script
-        $output = shell_exec("python3 assign_bundle.py " . escapeshellarg($userid) . " " . escapeshellarg($bundlename));
-        echo "<div style='padding: 20px; color: blue; font-weight: bold;'>$output</div>";
+            // call your new Python script
+            $output = shell_exec("python3 assign_bundle.py " . escapeshellarg($userid) . " " . escapeshellarg($bundlename));
+            echo "<div style='padding: 20px; color: blue; font-weight: bold;'>$output</div>";
+            }
+        ?>
+    </form>
+
+    <!-- Function 3 -->
+    <form method="POST" action="index.php" class="dbprompts">
+        <h1 class="promptTitle">View Users by Bundle</h1>
+        <div class="fTest">
+            <select name="bundleName" class="fInput" required>
+                <option value="">Select a Bundle</option>
+                <option value="Sword & Shield Brilliant Stars">Brilliant Stars</option>
+                <option value="Sword & Shield Lost Origin">Lost Origin</option>
+                <option value="Scarlet & Violet Paldean Fates">Paldean Fates</option>
+                <option value="Scarlet & Violet Obsidian Flames">Obsidian Flames</option>
+            </select>
+            <button type="submit" name="view_by_bundle" class="fButton">Show Users</button>
+        </div>
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["view_by_bundle"])) {
+            $bundle = $_POST["bundleName"];
+            $output = shell_exec("python3 view_users_by_bundle.py " . escapeshellarg($bundle));
+            echo "<div style='padding: 20px; font-family: monospace;'>$output</div>";
+            }
+        ?>
+    </form>
+
+    <!-- Function 4 -->
+    <form method="POST" action="index.php" class="dbprompts">
+        <h1 class="promptTitle">View All Bundles and Their Owners</h1>
+        <button type="submit" name="view_bundle_ownership" class="fButton">View Bundles</button>
+
+        <?php 
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["view_bundle_ownership"])) {
+                $output = shell_exec("python3 view_bundle_ownership.py");
+                echo "<div style='padding: 20px; font-family: monospace;'>$output</div>";
+            }    
+        ?>
+    </form>
+
+    <!-- Function 5 -->
+    <form method="POST" action="index.php" class="dbprompts">
+        <h1 class="promptTitle">Search Bundles by Request</h1>
+        <div class="fTest">
+        <label for="filter_type">Search By:</label>
+        <select name="filter_type" class="fInput" required>
+            <option value="">Select Type</option>
+            <option value="region">Region</option>
+            <option value="booster">Booster Pack Type</option>
+        </select>
+        
+        <input type="text" name="filter_value" placeholder="Enter region or booster type" class="fInput" required>
+        
+        <button type="submit" name="filter_bundles" class="fButton">Search</button>
+        </div>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["filter_bundles"])) {
+        $type = $_POST["filter_type"];
+        $value = $_POST["filter_value"];
+
+        $output = shell_exec("python3 filter_bundles.py " . escapeshellarg($type) . " " . escapeshellarg($value));
+        echo "<div style='padding: 20px; font-family: monospace;'>$output</div>";
         }
         ?>
-        
     </form>
+
+    <!-- Function 6 -->
+    <form method="POST" action="index.php" class="dbprompts">
+        <h1 class="promptTitle">Find Matching Users</h1>
+        <div class="fTest">
+        <input type="number" name="match_user_id" class="fInput" placeholder="Enter User ID" required>
+        <button type="submit" name="match_users" class="fButton">Find Matches</button>
+        </div>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["match_users"])) {
+        $uid = $_POST["match_user_id"];
+        $output = shell_exec("python3 match_users.py " . escapeshellarg($uid));
+        echo "<div style='padding: 20px; font-family: monospace;'>$output</div>";
+        }
+        ?>
+    </form>
+
+    <!-- Function 7 -->
+    <form method="POST" action="index.php" class="dbprompts">
+        <h1 class="promptTitle">Bundle Report</h1>
+        <div class="fTest">
+        <button type="submit" name="bundle_report" class="fButton">Generate Report</button>
+        </div>
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["bundle_report"])) {
+            $output = shell_exec("python3 bundle_report.py");
+            echo "<div style='padding: 20px; font-family: monospace;'>$output</div>";
+            }
+        ?>
+    </form>
+
+
 
     <div class="features">
         <div class="feature">

@@ -2,10 +2,10 @@ mysql <<EOFMYSQL
 use rbg002;
 show tables;
 
-DROP TABLE IF EXISTS Bundle;
-DROP TABLE IF EXISTS BoosterPack;
-DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS UserBundle;
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Bundle;
+DROP TABLE IF EXISTS PokemonCard;
 
 CREATE TABLE PokemonCard (
     CardID INT PRIMARY KEY AUTO_INCREMENT,
@@ -16,7 +16,6 @@ CREATE TABLE PokemonCard (
     BoosterPack VARCHAR(100),
     BundleName VARCHAR(100)
 );
-
 
 CREATE TABLE Bundle (
     BundleName VARCHAR(100) PRIMARY KEY,
@@ -39,7 +38,5 @@ CREATE TABLE UserBundle (
     FOREIGN KEY (UserID) REFERENCES User(UserID),
     FOREIGN KEY (BundleName) REFERENCES Bundle(BundleName)
 );
-
-INSERT INTO UserBundle (UserID, BundleName) VALUES (1, 'Lost Origin');
 
 EOFMYSQL

@@ -55,9 +55,9 @@ def close_db():  # use this function to close db
 
 
 ###   TEST #####
-mysql_username = 'replaceIt' # please change to your MySQL username
-mysql_password ='replaceIt'  # please change to your MySQL password
-open_database('localhost',mysql_username,mysql_password,mysql_username) # open database   
+# mysql_username = 'rbg002' # please change to your MySQL username
+# mysql_password ='Chu6Tu7a'  # please change to your MySQL password
+# open_database('localhost',mysql_username,mysql_password,mysql_username) # open database   
 # executeSelect('SELECT * FROM ITEM'); # This is just a sample test, replace with your query
 # insert('ITEM',"'jbg',22,23.5,1 ")# This is just a sample test, replace with your query
 # executeSelect('SELECT * FROM ITEM where supplier_id = 22;')# checking if the value is updated
