@@ -216,6 +216,18 @@ nav{
     height: 100px
 }
 
+.dbprompts{
+    height: 100vh;
+    background-color: #f2eeed;
+    position: relative;
+}
+
+.funcW{
+    height: 100vh;
+    background-color: #ffffff;
+    position: relative;
+}
+
 .product{
     height: 100vh;
     background-color: #f2eeed;

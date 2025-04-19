@@ -1,5 +1,5 @@
 mysql <<EOFMYSQL
-use palencia;
+use rbg002;
 show tables;
 
 DROP TABLE IF EXISTS UserBundle;

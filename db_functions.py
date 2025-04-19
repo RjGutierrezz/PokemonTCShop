@@ -4,8 +4,8 @@ import logging
 import python_db
 import random
 
-mysql_username = 'palencia'  # please change to your username
-mysql_password = 'die5Ail4'  # please change to your MySQL password
+mysql_username = 'rbg002'  # please change to your username
+mysql_password = 'Chu6Tu7a'  # please change to your MySQL password
 
 try:
 
@@ -47,5 +47,3 @@ try:
     python_db.close_db()  # close db
 except Exception as e:
     logging.error(traceback.format_exc())
-
-
