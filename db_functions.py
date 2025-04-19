@@ -35,7 +35,14 @@ try:
         values = f"{formatted}, '{name}', {age}, '{email}'"
         python_db.insert("User", values)
 
-        print("<br>User successfully added: " + name)
+        print(f"<br>User successfully added: {name}. Your user ID is: {formatted}")
+
+    if(action == "view bundles"):
+        pass
+
+
+
+    
 
     python_db.close_db()  # close db
 except Exception as e:
